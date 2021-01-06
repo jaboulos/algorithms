@@ -11,6 +11,11 @@ const mergeSort = (arr) => {
   const left = array.slice(0, center);
   const right = array.slice(mid);
 
+  // helpful way to see what is actually happening during the recursion
+  // is to console.log the left and right like:
+  // console.log('split left', left)
+  // console.log('split right', right)
+
   // recursively call mergeSort with left and right
   return divideAndMerge(mergeSort(left), mergeSort(right)); // this returns the return value from divideAndMerge
 };
@@ -30,6 +35,13 @@ const divideAndMerge = (left, right) => {
     // arrays are already sorted
     // return everything added to results
     // return remaining values in left or right array inputs
+
+    // alternate way for this last line can be written as
+    /*
+    while(left.length) result.push(left.shift())
+    while(right.length) result.push(right.shift())
+    */
     return [...results, ...left, ...right];
   }
 };
+console.log(mergeSort([1, 4, 2, 5, 9, 10, 1]));
