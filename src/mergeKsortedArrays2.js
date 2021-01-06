@@ -14,14 +14,22 @@ function divideArrays(arr, sortOrder) {
   if (arr.length === 1) {
     return arr[0];
   }
+  /*
+        [ 
+          [1, 3, 5, 7],
 
+          [2, 4, 6, 8],
+
+          [0, 9, 10, 11]
+        ]
+  */
   if (arr.length === 2) {
-    return merge(arr[0], arr[1], sortOrder);
+    return merge(arr[0], arr[1], sortOrder); // [1,3]
   }
 
-  const mid = Math.floor(arr.length / 2);
-  const arr1 = arr.slice(0, mid);
-  const arr2 = arr.slice(mid);
+  const mid = Math.floor(arr.length / 2); // 1 => 2 ***
+  const arr1 = arr.slice(0, mid); // [1,3, 5, 7] => [1,3] ***
+  const arr2 = arr.slice(mid); // [[2,4,6,8], [0,9,10,11]] => [5,7] ***
 
   return merge(
     divideArrays(arr1, sortOrder),
