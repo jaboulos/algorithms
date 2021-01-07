@@ -23,7 +23,7 @@ Do this in ONE pass over the array - NOT TWO passes, just one pass.
 Solution is only allowed to use constant extra memory.
 */
 
-function dutch_flag_sort(balls) {
+function dutchFlagSort(balls) {
   // define starting index for r and b
   // red is at the beginning
   let red=0;
