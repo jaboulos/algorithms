@@ -14,6 +14,9 @@ const mergeArrays = (arr) => {
 };
 
 // this is the complex part of the solution, if you can understand this, the rest is intuitive
+// goal of this function is to take each element of the array of arrays input, split that individual
+// array into 2 sub arrays and pass it down to the merge helper function, that function will compare each element
+// of both subArrays against each other, and return a single sorted array
 const divideArrays = (arr, sortOrder) => {
   // first thing to do is define base cases
   // if the input arr has a length of 1, return that value
