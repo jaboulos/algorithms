@@ -33,7 +33,7 @@ const divideArrays = (arr, sortOrder) => {
   const arr1 = arr.slice(0, mid);
   const arr2 = arr.slice(mid);
 
-  // recursivle call self until base case met, and pass into next helper function
+  // recursively call self until base case met, and pass into next helper function
   return merge(
     divideArrays(arr1, sortOrder),
     divideArrays(arr2, sortOrder),
