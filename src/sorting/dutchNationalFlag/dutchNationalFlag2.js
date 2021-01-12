@@ -47,6 +47,8 @@ function dutchFlagSort(arr) {
   return arr;
 }
 
+console.log(dutchFlagSort(['G','R','B','G','R','R','G','B']))
+
 /*
 input = ['G', 'R', 'B', 'G', 'R']
 
