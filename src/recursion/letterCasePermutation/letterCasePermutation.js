@@ -26,7 +26,7 @@ S will be a string with length between 1 and 12.
 S will consist only of letters or digits.
 */
 
-const letterCasePermutation = () => {
+const letterCasePermutation = (S) => {
   // create array to hold constructed strings
   const result = [];
 
@@ -68,5 +68,4 @@ const helper = (S, result, resultStr, i) => {
   helper(S, result, resultStr + S[i], i + 1);
 };
 
-const S = "a1b12";
-console.log(letterCasePermutation(S));
+console.log(letterCasePermutation("a1b2"));
