@@ -69,3 +69,6 @@ const helper = (S, result, resultStr, i) => {
 };
 
 console.log(letterCasePermutation("a1b2"));
+
+// Time complexity : O(2^n) // order of branching factor per height // 2 is the branches per height // n is the number of letters in string
+// Space complexity: O(n) // depth is n, n is height
