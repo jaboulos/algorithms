@@ -21,4 +21,20 @@ Empty set is a subset of any set.
 Any set is a subset of itself.
 */
 
-const generateSubsetOfSet = () => {};
+const generate_all_subsets = (s) => {
+  let results = [];
+  helper(s, 0, "", results);
+  return results;
+};
+
+const helper = (s, idx, slate, results) => {
+  // base case check
+  if (idx === s.length) {
+    results.push(slate);
+    return;
+  }
+  helper(s, idx + 1, slate + s[idx], results);
+  helper(s, idx + 1, slate, results);
+};
+
+generate_all_subsets("xy");
