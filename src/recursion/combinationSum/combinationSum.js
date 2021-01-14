@@ -46,29 +46,29 @@ All elements of candidates are distinct.
 Input: candidates = [2,3,6,7], target = 7
 Output: [[2,2,3],[7]]
 */
-const combinationSum = (input, targetSum) => {
-  const results = [];
-  helper(input, targetSum, null, results, [], 0);
-  return results;
-};
 
-const helper = (input, targetSum, currSum, results, comboResults, i) => {
-  // base case(s)
-
-  //bc 1
-  if (currSum === targetSum) {
-    results.push(comboResults);
+const combinationSum = (
+  candidates,
+  target,
+  i = 0,
+  cur = [],
+  combinations = []
+) => {
+  if (target <= 0) {
+    if (target === 0) {
+      combinations.push(cur.slice());
+    }
     return;
   }
-  // bc 2
-  if (currSum > targetSum) {
-    return results;
+  if (i < candidates.length) {
+    const value = candidates[i];
+    cur.push(value);
+    combinationSum(candidates, target - value, i, cur, combinations);
+    cur.pop();
+    combinationSum(candidates, target, i + 1, cur, combinations);
+    return combinations;
   }
-  // bc 3
-  if (i === input.length) {
-    return results;
-  }
-
-  // want to loop over the input and somehow keep summing the current input[i] with itself until base case 1 or 2 hits
-  // if input[i] added to itself over and over is > targetSum or === targetSum, then iterate to next i and do same check
+  return combinations;
 };
+
+combinationSum([2, 3, 5], 8);
