@@ -44,9 +44,15 @@ const helper = (n, k, i, subArr, results) => {
     return;
   }
 
+  const numArr = [];
+
+  for (let i = 1; i <= n; i++) {
+    numArray.push(i);
+  }
+
   // base case 2, both pointer values are ===
-  let leftPointer = 0;
-  let rightPointer = 0;
+  let leftPointer = numArr[0];
+  let rightPointer = numArr[numArr.length - 1];
   // return results
   /*
   ??? need to generate an array like this [1,2,3,4]
