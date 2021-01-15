@@ -43,7 +43,7 @@ const helper = (inputSet, combos, results, i) => {
   // recursive call and increment i // include
   helper(inputSet, combos, results, i + 1);
   // when the recursion returns, remove the last item in the combos arr
-  combos.pop(); // allows for same recursive call except without the last item added intoo combos
+  combos.pop(); // allows for same recursive call except without the last item added into combos
   helper(inputSet, combos, results, i + 1); // exclude
 };
 
