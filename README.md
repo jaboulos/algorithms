@@ -6,4 +6,6 @@
 - Recursion
 
 
-⋅⋅⋅ New algorithms are added daily.  All problems are solved using javascript. ⋅⋅⋅
+    New algorithms are added daily.  All problems are solved using javascript.
+
+
