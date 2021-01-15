@@ -4,26 +4,14 @@ ex: fib(4) => 3
     fib(7) => 13
 */
 
+// iterative solution
 const fib = (n) => {
-  let fibSeries = [0, 1];
-  let j = 0;
-  let nthVal = fibSeries[j-1] + fibSeries[j]
-
-  // generate fib series up to index n
-
-  if(n > 1) {
-    for(let i = 1; i === n; i++) {
-      fibSeries.push(nthVal)
-    }
+  const res = [0, 1];
+  // start for loop at i = 2, iterate up to n
+  for (let i = 2; i <= n; i++) {
+    // add previous 2 values then push into result set
+    const a = res[i - 2] + res[i - 1];
+    res.push(a);
   }
-
-  if(n === 0) {
-    return fibSeries[0]
-  }
-
-  if(n === 1) {
-    return fibSeries[1]
-  }
-
-  return fibSeries[n];
+  return res[n];
 };
