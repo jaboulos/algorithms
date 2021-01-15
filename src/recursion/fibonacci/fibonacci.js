@@ -15,3 +15,5 @@ const fib = (n) => {
   }
   return res[n];
 };
+
+// time complexity : linear
