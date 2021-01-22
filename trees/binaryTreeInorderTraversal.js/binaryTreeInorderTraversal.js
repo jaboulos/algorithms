@@ -42,6 +42,7 @@ Recursive solution is trivial, could you do it iteratively?
  * @return {number[]}
  */
 
+// RECURSIVE solution
 const inorderTraversal = (root) => {
   const result = [];
   if (!root) return result;
@@ -49,7 +50,6 @@ const inorderTraversal = (root) => {
   return result;
 };
 
-// IOT => LNR
 const helper = (node, result) => {
   // There is no 'base case', calls will stop after if conditions are satisfied then it returns result
   if (node.left) helper(node.left, result);
@@ -60,3 +60,26 @@ const helper = (node, result) => {
 
   return result;
 };
+
+/*
+// ITERATIVE solution
+const inorderTraversal = (root) => {
+  const result = [];
+  let stack = [];
+  let node = root;
+  if (!root) return result;
+
+  while (node || stack.length) {
+    // as long as there is a node, push left, keep going left
+    while (node) {
+      stack.push(node);
+      node = node.left;
+    }
+    // after left is done, pop the last item in the node and go right
+    node = stack.pop();
+    result.push(node.val);
+    node = node.right;
+  }
+  return result;
+};
+*/
