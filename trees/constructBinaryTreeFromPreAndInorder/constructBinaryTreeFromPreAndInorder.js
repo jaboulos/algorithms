@@ -59,7 +59,7 @@ function constructBinaryTree(preorder, inorder) {
 
   // STEP 2
   // get index of root val from inorder array
-  let rootIndex = inorder.indexOf(root.val);
+  let rootIndex = inorder.indexOf(root.val); // first thing shifted out of preorder is the root
 
   // STEP 3
   // identify left tree in inorder
