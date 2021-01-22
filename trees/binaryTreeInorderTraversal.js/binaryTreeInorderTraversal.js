@@ -41,4 +41,22 @@ Recursive solution is trivial, could you do it iteratively?
  * @param {TreeNode} root
  * @return {number[]}
  */
-const inorderTraversal = (root) => {};
+
+const inorderTraversal = (root) => {
+  const result = [];
+  if (!root) return result;
+  helper(root, result);
+  return result;
+};
+
+// IOT => LNR
+const helper = (node, result) => {
+  // There is no 'base case', calls will stop after if conditions are satisfied then it returns result
+  if (node.left) helper(node.left, result);
+
+  result.push(node.val);
+
+  if (node.right) helper(node.right, result);
+
+  return result;
+};
