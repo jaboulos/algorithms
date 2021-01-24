@@ -38,13 +38,27 @@ The number of nodes in the tree is in the range [0, 105].
  */
 
 const minDepth = (root) => {
-  let result = 0;
+  const result = 0;
   if (!root) return result;
+  let minLevel = Infinity;
+  // dfs
+  const dfs = (root, level) => {
+    // base case
+    if (!root) return;
+    if (!root.left && !root.right) {
+      // once you hit a leaf set the minLevel = to smaller value of minLevel and level
+      minLevel = Math.min(minLevel, level);
+      // break out of recursive call
+      return;
+    }
 
-  // define a queue
-  let q = [];
-  q.push(root);
+    // recursive calls
+    // each time you traverse, increase the level
+    dfs(root.left, level + 1);
+    dfs(root.right, level + 1);
+  };
 
-  // while q has stuff in it
-  while (q.length > 0) {}
+  dfs(root, 1);
+
+  return minLevel;
 };
