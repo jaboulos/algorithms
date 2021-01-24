@@ -31,26 +31,14 @@ The values of preorder are distinct.
  * @param {number[]} preorder
  * @return {TreeNode}
  */
-const bstFromPreorder = (preorder) => {
-  if (!preorder || preorder.length < 1) return null;
-  // these initial inputs are like a range
-  const nums = preorder.sort();
-  return helper(nums, 0, nums.length - 1);
-};
-
-// help to construct tree
-// need left index and right index and build tree in between
-// bottom up approach
-const helper = (nums, l, r) => {
-  // base case
-  if (l > r) return null;
-
-  const mid = Math.floor((l + r) / 2);
-  const node = new TreeNode(nums[mid]); // this is the root between the two subtrees
-
-  // recursion
-  node.left = helper(nums, l, mid - 1); // this is the left side
-  node.right = helper(nums, mid + 1, r); // this is the right side
-
-  return node;
+var bstFromPreorder = function (preorder) {
+  let recur = function (lower, upper) {
+    if (preorder[0] < lower || preorder[0] > upper) return null;
+    if (preorder.length == 0) return null;
+    let root = new TreeNode(preorder.shift());
+    root.left = recur(lower, root.val);
+    root.right = recur(root.val, upper);
+    return root;
+  };
+  return recur(-Infinity, Infinity);
 };
