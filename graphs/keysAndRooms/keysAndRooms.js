@@ -54,14 +54,6 @@ var canVisitAllRooms = function (rooms) {
     let keyForRoomNum = q.shift();
 
     for (let key of rooms[keyForRoomNum]) {
-      console.log({
-        key: key,
-        rooms: rooms,
-        keyForRoomNum: keyForRoomNum,
-        "rooms[keyForRoomNum]": rooms[keyForRoomNum],
-        visited: visited,
-        q: q,
-      });
       if (!visited.has(key)) {
         visited.add(key);
         q.push(key);
