@@ -23,27 +23,24 @@ intervals[i].length == 2
  * @return {number[][]}
  */
 
-const merge = (intervals) => {
-  // sort the input intervals
+const mergeIntervals = (intervals) => {
   intervals = intervals.sort((a, b) => a[0] - b[0]);
   let curr = intervals[0];
-  const result = [curr];
+  let res = [curr];
 
   for (let i = 1; i < intervals.length; i++) {
-    // get value of current subarray 2nd element inside result
-    const currRight = curr[1];
-    // destructure ith subarray
-    const [nextLeft, nextRight] = intervals[i];
-    // compare nextLeft with currRight
-    if (currRight >= nextLeft) {
-      // replace 2nd val of curr sub array withe larger value between currRight and nextRight
-      curr[1] = Math.max(currRight, nextRight);
+    // want to compare current pair right with next pair left
+    let currR = curr[1];
+    const [nextL, nextR] = intervals[i];
+
+    if (currR >= nextL) {
+      // update value of currR with the larger value between currR and nextR
+      curr[1] = Math.max(currR, nextR);
     } else {
-      // otherwise push into result
-      result.push(intervals[i]);
-      // set curr to the ith element
+      // otherwise, push current pair into res and update curr with current pair
+      res.push(intervals[i]);
       curr = intervals[i];
     }
   }
-  return result;
+  return res;
 };
