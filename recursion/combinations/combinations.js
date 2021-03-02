@@ -1,12 +1,10 @@
 /*
-Given two integers n and k, return all possible combinations of k numbers out of 1 ... n.
+Given two integers n and k,
+return all possible combinations of k numbers out of 1 ... n.
 
 You may return the answer in any order.
 
-
-
 Example 1:
-
 Input: n = 4, k = 2
 Output:
 [
@@ -17,11 +15,10 @@ Output:
   [1,3],
   [1,4],
 ]
-Example 2:
 
+Example 2:
 Input: n = 1, k = 1
 Output: [[1]]
-
 
 Constraints:
 
