@@ -28,21 +28,17 @@ Constraints:
  */
 
 const maxProfit = (prices) => {
-  let min = prices[0];
-  let maxProfit = 0; // maxProfit is min value - max value
-  for (let i = 0; i < prices.length; i++) {
-    min = Math.min(min, prices[i]);
-    maxProfit = Math.max(maxProfit, prices[i] - min);
-  }
-  return maxProfit;
-};
+  if (prices.length <= 1) return 0;
+  // return the difference between high and low
+  // var for lowest
+  let low = prices[0];
+  // var for highest
+  let high = -Infinity;
 
-// const maxProfit = (prices) => {
-//   let max = 0;
-//   for (let i = 0; i < prices.length; i++) {
-//     for (let j = 0; j < prices.length; j++) {
-//       if (prices[j] - prices[i] > max) max = prices[j] - prices[i];
-//     }
-//   }
-//   return max;
-// };
+  for (let i = 1; i < prices.length; i++) {
+    low = Math.min(low, prices[i]);
+    // high val is set after low, so never need to worry about selling a prev value before low
+    high = Math.max(high, prices[i] - low);
+  }
+  return high;
+};
